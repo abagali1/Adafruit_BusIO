@@ -1,4 +1,4 @@
-#include <Wire.h>
+#include <i2c_t3/i2c_t3.h>
 
 #ifndef Adafruit_I2CDevice_h
 #define Adafruit_I2CDevice_h
@@ -6,7 +6,7 @@
 ///< The class which defines how we will talk to this device over I2C
 class Adafruit_I2CDevice {
 public:
-  Adafruit_I2CDevice(uint8_t addr, TwoWire *theWire = &Wire);
+  Adafruit_I2CDevice(uint8_t addr, i2c_t3 *theWire = &Wire);
   uint8_t address(void);
   bool begin(bool addr_detect = true);
   bool detected(void);
@@ -25,7 +25,7 @@ public:
 
 private:
   uint8_t _addr;
-  TwoWire *_wire;
+  i2c_t3 *_wire;
   bool _begun;
   size_t _maxBufferSize;
 };
